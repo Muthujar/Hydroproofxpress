@@ -2,6 +2,7 @@
 
 import type { PropsWithChildren } from "react";
 
+import * as React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
 type FadeInProps = PropsWithChildren<{
@@ -16,7 +17,12 @@ export function FadeIn({
   delay = 0,
   as: Tag = "div",
 }: FadeInProps) {
-  const reduce = useReducedMotion();
+  const prefersReducedMotion = useReducedMotion();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => setMounted(true), []);
+
+  const reduce = mounted && !!prefersReducedMotion;
 
   const Comp = Tag === "section" ? motion.section : Tag === "li" ? motion.li : motion.div;
 

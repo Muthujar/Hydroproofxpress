@@ -1,84 +1,148 @@
-import Image from "next/image";
 import Link from "next/link";
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, Rocket } from "lucide-react";
 
-import { Card, CardContent } from "@/components/ui/card";
 import { FadeIn } from "@/components/shared/fade-in";
-import { SectionHeader } from "@/components/layout/section-header";
-import { SERVICE_ICONS, services } from "@/constants/services";
+import { services } from "@/constants/services";
+import { siteConfig } from "@/constants/site-config";
 import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
-type ServicesPreviewProps = {
-  /** Lighter footprint on homepage */
-  home?: boolean;
-};
-
-export function ServicesPreview({ home }: ServicesPreviewProps) {
-  const list = home ? services.slice(0, 4) : services;
-
+/** Numbered text-only service tiles — dark band, 4-column grid on large screens (no photos). */
+export function ServicesPreview() {
   return (
-    <section id="services" className="scroll-mt-28 bg-background py-14 md:py-16">
-      <div className="mx-auto min-w-0 max-w-[120rem] px-4 sm:px-6 lg:px-10">
-        <SectionHeader
-          eyebrow="What we do best"
-          title={home ? "Main waterproofing services" : "We trace leaks, then match the fix to your surface."}
-          description={
-            home
-              ? "Four popular services—the full list is on the services page."
-              : "From terraces to basements we use maker-approved methods with checks after wet work—not cosmetic touch-ups."
-          }
-          compact={home}
-        />
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {list.map((service, i) => {
-            const Icon = SERVICE_ICONS[service.iconKey];
-            return (
-              <FadeIn key={service.slug} delay={(i % 3) * 0.05}>
-                <article>
-                  <Card className="group h-full gap-0 overflow-hidden rounded-xl border-primary/22 py-0 transition-shadow hover:shadow-xl hover:shadow-cyan-950/12">
-                    <div className="relative aspect-[16/10] w-full bg-muted">
-                      <Image
-                        src={service.imageSrc}
-                        alt=""
-                        loading="lazy"
-                        fill
-                        sizes="(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw"
-                        className="object-cover transition-transform duration-[480ms] group-hover/card:scale-[1.03]"
-                      />
-                      <div className="absolute inset-x-3 top-3 flex items-center gap-3 rounded-lg bg-black/56 px-3 py-2 text-white backdrop-blur-sm md:inset-x-4 md:top-4">
-                        <Icon className="size-7 text-cyan-300" aria-hidden />
-                        <p className="text-[0.975rem] font-semibold leading-tight">{service.title}</p>
-                      </div>
-                    </div>
-                    <CardContent className="space-y-5 p-6">
-                      <p className="text-[1.05rem] leading-relaxed text-muted-foreground">{service.shortDesc}</p>
-                      <ul className="space-y-2 text-[0.975rem] text-foreground md:text-[1.02rem]">
-                        {service.highlights.slice(0, home ? 2 : service.highlights.length).map((h) => (
-                          <li key={h} className="flex gap-2">
-                            <span className="mt-1.5 size-2 shrink-0 rounded-[2px] bg-accent" aria-hidden />
-                            <span>{h}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      <Button variant="outline" className="w-full gap-2" asChild>
-                        <Link href={`/services/${service.slug}`}>
-                          Learn more
-                          <ArrowUpRight className="size-4" aria-hidden />
-                        </Link>
-                      </Button>
-                    </CardContent>
-                  </Card>
-                </article>
+    <section
+      id="services"
+      className="relative scroll-mt-28 border-t border-white/10 bg-slate-950 py-16 md:py-20 lg:py-24"
+    >
+      {/* Reference-style: soft vertical waves / lines on the left */}
+      <div
+        className="pointer-events-none absolute inset-y-0 left-0 w-[min(28%,220px)] opacity-[0.11]"
+        aria-hidden
+      >
+        <svg
+          className="h-full w-full text-white"
+          viewBox="0 0 120 800"
+          preserveAspectRatio="none"
+          fill="none"
+        >
+          <path
+            d="M12 0 C 52 160 -28 320 12 480 C 52 640 -28 800 12 800"
+            stroke="currentColor"
+            strokeWidth="1.2"
+            vectorEffect="non-scaling-stroke"
+          />
+          <path
+            d="M38 0 C -8 200 78 400 38 600 C 2 720 58 800 38 800"
+            stroke="currentColor"
+            strokeWidth="0.9"
+            opacity="0.65"
+            vectorEffect="non-scaling-stroke"
+          />
+          <path
+            d="M62 0 C 98 180 26 360 62 520 C 102 700 34 800 62 800"
+            stroke="currentColor"
+            strokeWidth="0.75"
+            opacity="0.45"
+            vectorEffect="non-scaling-stroke"
+          />
+        </svg>
+      </div>
+
+      <div
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_70%_-10%,rgba(251,191,36,0.06),transparent_55%)]"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.035] [background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.5)_1px,transparent_0)] [background-size:22px_22px]"
+        aria-hidden
+      />
+
+      <div className="relative mx-auto min-w-0 max-w-7xl px-4 sm:px-6 lg:px-8">
+        <header className="mx-auto max-w-4xl text-center">
+          <div className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-slate-900/90 px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-slate-300 shadow-inner shadow-black/20">
+            <Rocket className="size-3.5 text-amber-400" aria-hidden />
+            Discover what we offer
+          </div>
+          <h2 className="mt-6 font-heading text-[1.35rem] font-bold uppercase leading-tight tracking-tight text-white [text-wrap:balance] sm:text-2xl md:text-3xl lg:text-[2.15rem]">
+            Waterproofing service by{" "}
+            <span className="bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text text-transparent">
+              {siteConfig.name}
+            </span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-2xl text-pretty text-[1.02rem] leading-relaxed text-slate-400 md:text-[1.06rem]">
+            Inspection-led scopes across slabs, wet rooms, roofs, tanks, and walls—tap a number for the full
+            checklist.
+          </p>
+        </header>
+
+        <ul className="mt-12 grid list-none grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4 lg:gap-5">
+          {services.map((service, i) => (
+            <li key={service.slug} className="min-w-0">
+              <FadeIn delay={(i % 4) * 0.04}>
+                <Link
+                  href={`/services/${service.slug}`}
+                  className={cn(
+                    "group flex h-full min-h-[148px] flex-col rounded-2xl border border-white/[0.08] bg-slate-900/85 p-6 transition-all duration-300",
+                    "hover:border-amber-400/35 hover:bg-slate-900 hover:shadow-[0_20px_50px_-28px_rgba(0,0,0,0.85)]"
+                  )}
+                >
+                  <span
+                    className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white text-sm font-bold tabular-nums text-slate-950 shadow-sm"
+                    aria-hidden
+                  >
+                    {String(i + 1).padStart(2, "0")}.
+                  </span>
+                  <h3 className="mt-5 text-left font-heading text-base font-semibold leading-snug text-white [text-wrap:balance] sm:text-[1.05rem]">
+                    {service.title}
+                  </h3>
+                  <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-amber-400/90">
+                    Details
+                    <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+                  </span>
+                </Link>
               </FadeIn>
-            );
-          })}
-        </div>
-        <FadeIn delay={0.1} className="mt-10 text-center">
-          <Button size="lg" asChild className="px-10">
-            <Link href="/services">See all services</Link>
+            </li>
+          ))}
+          <li className="min-w-0">
+            <FadeIn delay={0.12}>
+              <Link
+                href="/services"
+                className={cn(
+                  "group flex h-full min-h-[148px] flex-col rounded-2xl border border-amber-400/25 bg-slate-900/90 p-6 transition-all duration-300",
+                  "hover:border-amber-400/50 hover:shadow-[0_20px_50px_-28px_rgba(251,191,36,0.12)]"
+                )}
+              >
+                <span
+                  className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white text-sm font-bold tabular-nums text-slate-950 shadow-sm"
+                  aria-hidden
+                >
+                  08.
+                </span>
+                <h3 className="mt-5 text-left font-heading text-base font-semibold leading-snug text-white [text-wrap:balance] sm:text-[1.05rem]">
+                  Every scope we cover—plus custom combinations
+                </h3>
+                <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-semibold text-amber-400">
+                  Full list
+                  <ArrowRight className="size-4 transition-transform group-hover:translate-x-0.5" aria-hidden />
+                </span>
+              </Link>
+            </FadeIn>
+          </li>
+        </ul>
+
+        <div className="mt-12 flex justify-center">
+          <Button
+            size="lg"
+            asChild
+            className="rounded-full border-0 bg-amber-500 px-10 font-semibold text-slate-950 shadow-lg shadow-amber-950/25 hover:bg-amber-400"
+          >
+            <Link href="/contact">
+              Book a free check
+              <ArrowRight className="ml-2 size-5" aria-hidden />
+            </Link>
           </Button>
-        </FadeIn>
+        </div>
       </div>
     </section>
   );

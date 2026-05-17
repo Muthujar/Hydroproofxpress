@@ -57,12 +57,12 @@ export function ProcessTimeline({ compact = false }: ProcessTimelineProps) {
   const steps = compact ? stepsCompact : [...stepsFull];
 
   return (
-    <section className="relative bg-background py-12 md:py-16">
+    <section className="relative scroll-mt-28 border-t border-border/80 bg-muted/35 py-16 md:py-20">
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.1),transparent_42%)]"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/[0.07] via-transparent to-amber-500/[0.05]"
         aria-hidden
       />
-      <div className="relative mx-auto min-w-0 max-w-[120rem] px-4 sm:px-6 lg:px-10">
+      <div className="relative mx-auto min-w-0 max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeader
           eyebrow="How we work"
           title={compact ? "Simple steps from visit to finish" : "A clear process—no confusing jargon."}

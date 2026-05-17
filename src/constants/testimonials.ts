@@ -11,7 +11,7 @@ export const testimonials: Testimonial[] = [
   {
     id: "t1",
     quote:
-      "Our terrace plaster was bubbling everywhere. HydroProof XPress fixed the slopes, replaced failed sheets, and ran a proper water test—no repeat leaks through two Hyderabad monsoons.",
+      "Our terrace plaster was bubbling everywhere. HydroProof XPress fixed the slopes, replaced failed sheets, and ran a proper water test—no repeat leaks through two monsoon seasons.",
     name: "Ananya Krishnan",
     role: "Homeowner • Madhapur",
     location: "Hyderabad",

@@ -1,81 +1,67 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { MapPin, Phone } from "lucide-react";
+import { MapPin } from "lucide-react";
 
 import { ContactEnquiryForm } from "@/components/forms/contact-enquiry-form";
 import { FadeIn } from "@/components/shared/fade-in";
+import { siteConfig, getWhatsAppUrl } from "@/constants/site-config";
 import { buildPageMeta } from "@/lib/seo";
-import { siteConfig } from "@/constants/site-config";
 import { Button } from "@/components/ui/button";
-import { getWhatsAppUrl } from "@/constants/site-config";
 
 export const metadata: Metadata = buildPageMeta({
   title: "Contact",
   path: "/contact",
   description:
-    "Call or WhatsApp HydroProof XPress for bookings, quotes, society coordination, photo uploads, and urgent leaks across Hyderabad.",
+    "Book a damp check or ask about terrace, bathroom, roof, and basement waterproofing—call, WhatsApp, or use the form.",
 });
 
 export default function ContactPage() {
   return (
     <div className="bg-background">
-      <section className="border-b border-border bg-muted/50 py-20 md:py-24">
-        <div className="mx-auto max-w-[840px] space-y-6 px-4 text-center lg:max-w-[60rem]">
-          <FadeIn>
-            <h1 className="font-heading text-4xl tracking-tight text-primary sm:text-5xl md:text-[2.85rem]">
-              Inspectors, quotes team, and site leads—one inbox.
-            </h1>
-            <p className="mx-auto mt-5 max-w-2xl text-pretty text-lg text-muted-foreground">
-              Prefer a call? Dial direct. Prefer chat? WhatsApp damp photos—we suggest suitable waterproofing before teams roll in.
-            </p>
-          </FadeIn>
+      <section className="border-b border-border bg-muted/45 px-4 py-14 text-center md:py-16">
+        <h1 className="font-heading text-3xl text-primary md:text-[2.5rem]">Contact</h1>
+        <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
+          Call, WhatsApp site photos, or send the form—we’ll route the right crew.
+        </p>
+        <div className="mt-8 flex flex-wrap justify-center gap-3">
+          <Button asChild>
+            <a href={`tel:${siteConfig.phoneTel}`}>{siteConfig.phoneDisplay}</a>
+          </Button>
+          <Button variant="outline" asChild>
+            <Link href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" prefetch={false}>
+              WhatsApp
+            </Link>
+          </Button>
         </div>
       </section>
-      <div className="mx-auto grid max-w-[1100px] gap-14 px-4 py-20 md:grid-cols-2 lg:gap-20 lg:px-8">
-        <FadeIn className="space-y-8">
-          <div className="space-y-4">
-            <a
-              href={`tel:${siteConfig.phoneTel}`}
-              className="flex items-start gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm hover:border-primary/40"
-            >
-              <Phone className="size-7 shrink-0 text-primary" aria-hidden />
-              <div className="text-left">
-                <p className="text-xs uppercase tracking-[0.12em] text-muted-foreground">Call desk</p>
-                <p className="font-heading text-xl text-primary">{siteConfig.phoneDisplay}</p>
-              </div>
-            </a>
-            <Button variant="outline" className="w-full md:w-max" asChild>
-              <Link href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" prefetch={false}>
-                WhatsApp us
-              </Link>
-            </Button>
-          </div>
-          <address className="not-italic">
-            <p className="mb-4 flex gap-4 text-muted-foreground">
-              <MapPin className="mt-1 size-6 shrink-0 text-primary" aria-hidden />
-              <span>
-                {siteConfig.address.street}
-                <br />
-                {siteConfig.address.city}, {siteConfig.address.region}{" "}
-                {siteConfig.address.postalCode}
-                <br />
-                {siteConfig.address.country}
-              </span>
+      <div className="mx-auto grid min-w-0 max-w-[120rem] gap-10 px-4 py-12 sm:grid-cols-2 sm:gap-12 sm:px-6 lg:grid-cols-[1fr_1.05fr] lg:gap-x-14 lg:px-10">
+        <FadeIn className="min-w-0 space-y-6">
+          <div className="flex min-w-0 gap-3 text-foreground">
+            <MapPin className="mt-0.5 size-7 shrink-0 text-primary" aria-hidden />
+            <p className="text-[1.04rem] leading-relaxed [overflow-wrap:anywhere]">
+              <span className="font-semibold text-primary">{siteConfig.name}</span>
+              <br />
+              {siteConfig.address.street}, {siteConfig.address.city}, {siteConfig.address.region}{" "}
+              {siteConfig.address.postalCode}
             </p>
-            <div className="aspect-[21/13] overflow-hidden rounded-2xl border border-border">
-              <iframe
-                title="Service hub map"
-                src={siteConfig.address.mapEmbedUrl}
-                loading="lazy"
-                className="min-h-[220px] w-full border-0"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </address>
+          </div>
+          <p className="text-muted-foreground">
+            <a href={`mailto:${siteConfig.email}`} className="font-medium text-primary underline-offset-4 hover:underline">
+              {siteConfig.email}
+            </a>
+          </p>
+          <div className="aspect-[21/12] min-h-[200px] w-full overflow-hidden rounded-xl border border-border shadow-md">
+            <iframe
+              title="Service area map"
+              src={siteConfig.address.mapEmbedUrl}
+              loading="lazy"
+              className="h-full min-h-[200px] w-full border-0"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
         </FadeIn>
-        <FadeIn delay={0.06}>
-          <div className="rounded-3xl border border-border bg-card p-8 shadow-xl">
-            <h2 className="font-heading mb-8 text-xl text-primary">Project enquiry</h2>
+        <FadeIn delay={0.05} className="min-w-0">
+          <div className="rounded-2xl border border-border bg-card p-6 shadow-lg sm:p-8">
             <ContactEnquiryForm />
           </div>
         </FadeIn>

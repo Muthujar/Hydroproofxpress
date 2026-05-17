@@ -3,12 +3,11 @@ export type NavLink = {
   href: string;
 };
 
-export const mainNavLinks: NavLink[] = [
+/** Primary header nav — concise contractor-style IA */
+export const headerNavLinks: NavLink[] = [
   { title: "Home", href: "/" },
+  { title: "About Us", href: "/about" },
   { title: "Services", href: "/services" },
-  { title: "About", href: "/about" },
   { title: "Gallery", href: "/gallery" },
-  { title: "Testimonials", href: "/testimonials" },
-  { title: "FAQ", href: "/faq" },
-  { title: "Contact", href: "/contact" },
+  { title: "Contact Us", href: "/contact" },
 ];

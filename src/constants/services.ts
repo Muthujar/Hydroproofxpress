@@ -57,7 +57,7 @@ export const services: ServiceItem[] = [
     title: "Terrace Waterproofing",
     shortDesc: "Terraces that stay dry through heavy rain.",
     description:
-      "We fix spots where water pools, adjust slopes where needed, and apply layered waterproofing plus reflective top coats suited to Hyderabad weather—so the slab lasts longer and leaks don’t come back quickly.",
+      "We fix spots where water pools, adjust slopes where needed, and apply layered waterproofing plus reflective top coats suited to your local climate—so the slab lasts longer and leaks don’t come back quickly.",
     iconKey: "terrace",
     imageSrc:
       "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=80&auto=format&fit=crop",

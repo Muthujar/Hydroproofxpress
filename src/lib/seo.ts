@@ -25,10 +25,10 @@ export const defaultMetadata: Metadata = {
     "basement waterproofing",
     "roof coating",
     "bathroom seepage",
-    "Hyderabad building waterproofing",
+    "residential waterproofing",
     "wall and slab leaks",
     "polyurethane waterproofing",
-    "Hyderabad waterproofing contractors",
+    "commercial waterproofing contractors",
   ],
   authors: [{ name: siteConfig.name, url: siteUrl }],
   openGraph: {

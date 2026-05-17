@@ -22,12 +22,4 @@ export const featuredProjects: GalleryProject[] = [
     afterSrc:
       "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=75&auto=format&fit=crop",
   },
-  {
-    id: "gp-3",
-    title: "Bathroom repair — gated community flat",
-    beforeSrc:
-      "https://images.unsplash.com/photo-1595526114035-0d456edcdf85?w=800&q=75&auto=format&fit=crop",
-    afterSrc:
-      "https://images.unsplash.com/photo-1631889993954-faac960947c9?w=800&q=75&auto=format&fit=crop",
-  },
 ];

@@ -36,7 +36,7 @@ export function TestimonialsCarousel({
             }
             description={
               compact
-                ? "Sample Hyderabad jobs — read more on Testimonials."
+                ? "Sample jobs — read more on Testimonials."
                 : undefined
             }
             align="center"
