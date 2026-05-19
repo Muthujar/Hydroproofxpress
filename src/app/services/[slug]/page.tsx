@@ -41,9 +41,9 @@ export default async function ServiceDetailPage(props: Props) {
         <div className="absolute inset-0">
           <Image
             src={svc.imageSrc}
-            alt=""
+            alt={svc.title}
             fill
-            className="object-cover"
+            className="object-cover object-center"
             sizes="100vw"
             priority
           />
@@ -55,7 +55,7 @@ export default async function ServiceDetailPage(props: Props) {
           </span>
           <div className="max-w-4xl space-y-4">
             <p className="text-xs uppercase tracking-[0.24em] text-primary/85">Service overview</p>
-            <h1 className="font-heading text-4xl text-primary md:text-[2.82rem] md:leading-snug">{svc.title}</h1>
+            <h1 className="font-heading text-3xl text-balance text-primary [overflow-wrap:anywhere] sm:text-4xl md:text-[2.82rem] md:leading-snug">{svc.title}</h1>
             <p className="text-lg text-muted-foreground">{svc.shortDesc}</p>
             <Button size="lg" asChild className="mt-4 shadow-md">
               <Link href={`/contact?service=${encodeURIComponent(svc.slug)}`}>Request inspection</Link>

@@ -11,7 +11,7 @@ export function ServiceAreaSection() {
         <FadeIn className="max-w-xl space-y-4">
           <SectionHeader
             eyebrow="Service areas"
-            title="Hyderabad first—we can reach nearby cities too."
+            title="Bengaluru South first—we cover Kanakapura Rd and nearby areas."
             description="We keep rolls, pumps, and testing kits ready locally so premium complexes aren’t delayed waiting on supplies."
           />
         </FadeIn>

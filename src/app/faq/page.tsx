@@ -17,7 +17,7 @@ export default function FaqPage() {
   return (
     <div className="bg-background">
       <section className="border-b border-border bg-muted/45 px-4 py-20 text-center md:py-24">
-        <h1 className="font-heading text-4xl text-primary md:text-[2.75rem]">Straight answers</h1>
+        <h1 className="font-heading text-3xl text-primary sm:text-4xl md:text-[2.75rem]">Straight answers</h1>
         <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
           Still unsure? WhatsApp site photos—our team explains choices in plain words before you pay a start deposit.
         </p>

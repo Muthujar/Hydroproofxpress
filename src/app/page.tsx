@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { HeroSection } from "@/components/home/hero-section";
 import { ServicesPreview } from "@/components/home/services-preview";
 import { WhyChooseSection } from "@/components/home/why-choose-section";
-import { ProcessTimeline } from "@/components/home/process-timeline";
+import { CredentialsSection } from "@/components/home/credentials-section";
 import { ContactSectionHome } from "@/components/home/contact-section";
 import { buildPageMeta } from "@/lib/seo";
 
@@ -20,7 +20,7 @@ export default function HomePage() {
       <HeroSection />
       <ServicesPreview />
       <WhyChooseSection />
-      <ProcessTimeline compact />
+      <CredentialsSection />
       <ContactSectionHome />
     </>
   );

@@ -7,7 +7,7 @@ export const metadata: Metadata = buildPageMeta({
   title: "Gallery",
   path: "/gallery",
   description:
-    "Before and after waterproofing project stages—terraces, bathrooms, decks, and tanks.",
+    "Site photos from terrace, bathroom, crack injection, and exterior waterproofing work across Bengaluru South.",
 });
 
 export default function GalleryPage() {
@@ -16,7 +16,7 @@ export default function GalleryPage() {
       <section className="border-b border-border bg-muted/45 px-4 py-14 text-center md:py-16">
         <h1 className="font-heading text-3xl text-primary md:text-[2.5rem]">Gallery</h1>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
-          Illustrative project stages—swap in your own site photography anytime.
+          Real project photos—terrace membranes, bathroom sealing, crack injection, and exterior coatings.
         </p>
       </section>
       <ProjectGallery />

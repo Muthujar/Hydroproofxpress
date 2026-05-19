@@ -89,8 +89,30 @@ export function TestimonialsCarousel({
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious variant="outline" className="-left-1 hidden lg:flex [&>svg]:size-7" aria-label="Previous testimonial" />
-            <CarouselNext variant="outline" className="-right-1 hidden lg:flex [&>svg]:size-7" aria-label="Next testimonial" />
+            <CarouselPrevious
+              variant="outline"
+              className="-left-1 hidden lg:flex [&>svg]:size-7"
+              aria-label="Previous testimonial"
+            />
+            <CarouselNext
+              variant="outline"
+              className="-right-1 hidden lg:flex [&>svg]:size-7"
+              aria-label="Next testimonial"
+            />
+            <div className="mt-5 flex justify-center gap-3 lg:hidden">
+              <CarouselPrevious
+                variant="outline"
+                size="icon-lg"
+                className="static inset-auto size-11 translate-x-0 translate-y-0 touch-manipulation [&>svg]:size-5"
+                aria-label="Previous testimonial"
+              />
+              <CarouselNext
+                variant="outline"
+                size="icon-lg"
+                className="static inset-auto size-11 translate-x-0 translate-y-0 touch-manipulation [&>svg]:size-5"
+                aria-label="Next testimonial"
+              />
+            </div>
           </Carousel>
           </div>
         </FadeIn>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MapPin } from "lucide-react";
 
 import { ContactEnquiryForm } from "@/components/forms/contact-enquiry-form";
+import { BrandLogo } from "@/components/shared/brand-logo";
 import { FadeIn } from "@/components/shared/fade-in";
 import { siteConfig, getWhatsAppUrl } from "@/constants/site-config";
 import { buildPageMeta } from "@/lib/seo";
@@ -24,23 +25,22 @@ export default function ContactPage() {
           Call, WhatsApp site photos, or send the form—we’ll route the right crew.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
-          <Button asChild>
+          <Button size="lg" asChild>
             <a href={`tel:${siteConfig.phoneTel}`}>{siteConfig.phoneDisplay}</a>
           </Button>
-          <Button variant="outline" asChild>
+          <Button size="lg" variant="outline" asChild>
             <Link href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" prefetch={false}>
               WhatsApp
             </Link>
           </Button>
         </div>
       </section>
-      <div className="mx-auto grid min-w-0 max-w-[120rem] gap-10 px-4 py-12 sm:grid-cols-2 sm:gap-12 sm:px-6 lg:grid-cols-[1fr_1.05fr] lg:gap-x-14 lg:px-10">
+      <div className="mx-auto grid min-w-0 max-w-[120rem] gap-10 px-4 py-12 md:grid-cols-2 md:gap-12 sm:px-6 lg:grid-cols-[1fr_1.05fr] lg:gap-x-14 lg:px-10">
         <FadeIn className="min-w-0 space-y-6">
+          <BrandLogo size="inline" />
           <div className="flex min-w-0 gap-3 text-foreground">
             <MapPin className="mt-0.5 size-7 shrink-0 text-primary" aria-hidden />
             <p className="text-[1.04rem] leading-relaxed [overflow-wrap:anywhere]">
-              <span className="font-semibold text-primary">{siteConfig.name}</span>
-              <br />
               {siteConfig.address.street}, {siteConfig.address.city}, {siteConfig.address.region}{" "}
               {siteConfig.address.postalCode}
             </p>

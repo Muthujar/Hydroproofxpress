@@ -2,20 +2,12 @@ import Link from "next/link";
 
 import { Mail, MapPin, Phone } from "lucide-react";
 
+import { BrandLogo } from "@/components/shared/brand-logo";
 import { getWhatsAppUrl, siteConfig } from "@/constants/site-config";
 import { services } from "@/constants/services";
 import { cn } from "@/lib/utils";
 
-const quickLinks: { label: string; href: string }[] = [
-  { label: "Home", href: "/" },
-  { label: "About Us", href: "/about" },
-  { label: "Contact", href: "/contact" },
-  { label: "Services", href: "/services" },
-  { label: "Gallery", href: "/gallery" },
-  { label: "Testimonials", href: "/testimonials" },
-  { label: "FAQ", href: "/faq" },
-  { label: "Privacy", href: "/privacy" },
-];
+import { footerQuickLinks } from "@/constants/nav";
 
 function chunkIntoColumns<T>(items: readonly T[], columnCount: number): T[][] {
   if (items.length === 0) return [];
@@ -40,8 +32,8 @@ function LabeledBlock({
 }) {
   return (
     <div className={cn("space-y-1", className)}>
-      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-500">{label}</p>
-      <div className="text-sm text-slate-200">{children}</div>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-slate-900/85">{label}</p>
+      <div className="text-sm text-slate-100">{children}</div>
     </div>
   );
 }
@@ -50,20 +42,26 @@ export function SiteFooter({ className }: { className?: string }) {
   const year = new Date().getFullYear();
 
   return (
-    <footer className={cn("border-t border-border bg-slate-950 text-slate-200", className)}>
-      <div className="mx-auto max-w-[120rem] min-w-0 px-4 pb-[calc(7.75rem+env(safe-area-inset-bottom,0px))] pt-14 sm:px-6 sm:pb-14 lg:px-10">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-12 lg:gap-10 xl:gap-14">
+    <footer
+      className={cn(
+        "border-t border-[#3d6283]/40 bg-gradient-to-b from-[#2a4f72] via-[#234a6a] to-[#1c3d58] text-slate-100",
+        className
+      )}
+    >
+      <div className="mx-auto max-w-[120rem] min-w-0 px-4 pb-[calc(5.5rem+env(safe-area-inset-bottom,0px))] pt-8 sm:px-6 sm:pb-8 lg:px-10 lg:pt-10">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           {/* Brand + contact */}
-          <div className="space-y-8 sm:col-span-2 lg:col-span-4 lg:space-y-6">
+          <div className="space-y-5 sm:col-span-2 lg:col-span-4 lg:space-y-4">
             <div>
-              <Link href="/" className="inline-block focus-visible:outline-none focus-visible:underline">
-                <span className="font-heading text-2xl font-semibold tracking-tight text-white">
-                  {siteConfig.name}
-                </span>
+              <Link
+                href="/"
+                className="inline-flex transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400/50"
+              >
+                <BrandLogo size="footer" />
               </Link>
-              <p className="mt-3 max-w-md text-sm leading-relaxed text-slate-400">{siteConfig.tagline}</p>
+              <p className="mt-2 max-w-md text-sm leading-snug text-slate-200/85">{siteConfig.tagline}</p>
             </div>
-            <div className="space-y-6">
+            <div className="space-y-4">
               <LabeledBlock label="Phone number">
                 <a
                   href={`tel:${siteConfig.phoneTel}`}
@@ -74,7 +72,7 @@ export function SiteFooter({ className }: { className?: string }) {
                 </a>
               </LabeledBlock>
               <LabeledBlock label="E-mail">
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-2">
                   <a
                     href={`mailto:${siteConfig.email}`}
                     className="inline-flex flex-wrap items-center gap-2 break-all font-medium text-slate-100 transition-colors hover:text-amber-300"
@@ -122,35 +120,60 @@ export function SiteFooter({ className }: { className?: string }) {
 
           {/* Quick links */}
           <nav aria-label="Quick links" className="sm:col-span-1 lg:col-span-2">
-            <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">Quick links</h2>
-            <ul className="mt-4 flex flex-col gap-2 text-sm">
-              {quickLinks.map((l) => (
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-900/85">Quick links</h2>
+            <ul className="mt-3 flex flex-col gap-0.5 text-sm">
+              {footerQuickLinks.map((l) => (
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-slate-300 [overflow-wrap:anywhere] hover:text-white focus-visible:outline-none focus-visible:underline"
+                    className="flex min-h-[44px] items-center text-slate-100/90 [overflow-wrap:anywhere] hover:text-white focus-visible:outline-none focus-visible:underline"
                   >
-                    {l.label}
+                    {l.title}
                   </Link>
                 </li>
               ))}
             </ul>
           </nav>
 
-          {/* Our services — repeated column pattern */}
+          {/* Our services — single list on mobile/tablet */}
+          <nav aria-label="Our services" className="sm:col-span-1 lg:hidden">
+            <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-900/85">Our services</h2>
+            <ul className="mt-3 flex flex-col gap-0.5 text-sm">
+              {services.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    href={`/services/${s.slug}`}
+                    className="flex min-h-[44px] items-center text-slate-100/90 [overflow-wrap:anywhere] hover:text-white focus-visible:outline-none focus-visible:underline"
+                  >
+                    {s.title}
+                  </Link>
+                </li>
+              ))}
+              <li>
+                <Link
+                  href="/services"
+                  className="flex min-h-[44px] items-center font-medium text-amber-300 hover:text-amber-200 focus-visible:outline-none focus-visible:underline"
+                >
+                  View all services
+                </Link>
+              </li>
+            </ul>
+          </nav>
+
+          {/* Our services — 3 columns on desktop */}
           {serviceChunks.map((chunk, colIndex) => (
             <nav
               key={colIndex}
               aria-label={`Our services (${String(colIndex + 1)})`}
-              className="sm:col-span-1 lg:col-span-2"
+              className="hidden sm:col-span-1 lg:col-span-2 lg:block"
             >
-              <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">Our services</h2>
-              <ul className="mt-4 flex flex-col gap-2 text-sm">
+              <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-900/85">Our services</h2>
+              <ul className="mt-3 flex flex-col gap-0.5 text-sm">
                 {chunk.map((s) => (
                   <li key={s.slug}>
                     <Link
                       href={`/services/${s.slug}`}
-                      className="text-slate-300 [overflow-wrap:anywhere] hover:text-white focus-visible:outline-none focus-visible:underline"
+                      className="flex min-h-[44px] items-center text-slate-100/90 [overflow-wrap:anywhere] hover:text-white focus-visible:outline-none focus-visible:underline"
                     >
                       {s.title}
                     </Link>
@@ -160,7 +183,7 @@ export function SiteFooter({ className }: { className?: string }) {
                   <li>
                     <Link
                       href="/services"
-                      className="font-medium text-amber-300 hover:text-amber-200 focus-visible:outline-none focus-visible:underline"
+                      className="flex min-h-[44px] items-center font-medium text-amber-300 hover:text-amber-200 focus-visible:outline-none focus-visible:underline"
                     >
                       View all services
                     </Link>
@@ -171,7 +194,7 @@ export function SiteFooter({ className }: { className?: string }) {
           ))}
         </div>
 
-        <div className="mt-14 border-t border-slate-800 pt-8 text-center text-xs text-slate-500 sm:text-left">
+        <div className="mt-8 border-t border-[#4a7394]/35 pt-5 text-center text-xs text-slate-300/75 sm:text-left">
           <p className="[overflow-wrap:anywhere]">
             &copy; {year} {siteConfig.name}. All rights reserved.
           </p>

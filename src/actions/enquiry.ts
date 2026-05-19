@@ -14,7 +14,13 @@ export type EnquiryActionResult =
     };
 
 function formatHtml(data: EnquiryInput): string {
+  const origin = siteConfig.url.replace(/\/$/, "");
+  const logoUrl = `${origin}${siteConfig.logo.src}`;
+
   const rows = `
+    <div style="margin-bottom:24px;">
+      <img src="${logoUrl}" alt="${escapeHtml(siteConfig.name)}" width="220" height="147" style="display:block;height:auto;max-width:220px;width:220px;" />
+    </div>
     <p><strong>Name:</strong> ${escapeHtml(data.name)}</p>
     <p><strong>Phone:</strong> ${escapeHtml(data.phone)}</p>
     <p><strong>Service key:</strong> ${escapeHtml(data.serviceType)}</p>

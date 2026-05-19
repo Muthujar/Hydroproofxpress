@@ -1,21 +1,29 @@
 import { siteConfig } from "@/constants/site-config";
 
+function siteOrigin(): string {
+  return siteConfig.url.replace(/\/$/, "");
+}
+
 /** LocalBusiness + WebSite structured data — inject once (server-safe) */
 export function LocalBusinessSchema() {
+  const origin = siteOrigin();
+  const logoUrl = `${origin}${siteConfig.logo.src}`;
+
   const graph = {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "LocalBusiness",
         name: siteConfig.name,
-        image: `${siteConfig.url.replace(/\/$/, "")}/opengraph-image`,
-        url: siteConfig.url.replace(/\/$/, ""),
+        image: logoUrl,
+        logo: logoUrl,
+        url: origin,
         telephone: siteConfig.phoneTel,
         description: siteConfig.description,
         email: siteConfig.email,
         areaServed: {
           "@type": "AdministrativeArea",
-          name: "Hyderabad Metropolitan Region",
+          name: "Bengaluru South & Kanakapura corridor",
         },
         openingHoursSpecification: [
           {
@@ -42,18 +50,19 @@ export function LocalBusinessSchema() {
         priceRange: "₹₹–₹₹₹",
         geo: {
           "@type": "GeoCoordinates",
-          latitude: "17.4304",
-          longitude: "78.3489",
+          latitude: siteConfig.address.latitude,
+          longitude: siteConfig.address.longitude,
         },
       },
       {
         "@type": "WebSite",
-        url: siteConfig.url.replace(/\/$/, ""),
+        url: origin,
         name: siteConfig.name,
         publisher: {
           "@type": "Organization",
           name: siteConfig.name,
-          url: siteConfig.url.replace(/\/$/, ""),
+          url: origin,
+          logo: logoUrl,
         },
       },
     ],

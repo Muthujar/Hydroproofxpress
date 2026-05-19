@@ -13,8 +13,8 @@ export const testimonials: Testimonial[] = [
     quote:
       "Our terrace plaster was bubbling everywhere. HydroProof XPress fixed the slopes, replaced failed sheets, and ran a proper water test—no repeat leaks through two monsoon seasons.",
     name: "Ananya Krishnan",
-    role: "Homeowner • Madhapur",
-    location: "Hyderabad",
+    role: "Homeowner • JP Nagar",
+    location: "Bengaluru",
     rating: 5,
   },
   {
@@ -22,8 +22,8 @@ export const testimonials: Testimonial[] = [
     quote:
       "They found a stubborn bathroom leak behind our vanity without tearing up half the house. Photo updates kept our designer in the loop.",
     name: "Rajesh Patel",
-    role: "Residential • Jubilee Hills",
-    location: "Hyderabad",
+    role: "Residential • Kanakapura Rd",
+    location: "Bengaluru",
     rating: 5,
   },
   {
@@ -31,8 +31,8 @@ export const testimonials: Testimonial[] = [
     quote:
       "Parking deck leaks were reaching electrical gear. They contained it overnight, upgraded the waterproofing in stages, and gave reports our building manager could follow.",
     name: "Facility Manager",
-    role: "IT Park • Raidurg",
-    location: "Hyderabad",
+    role: "IT Park • Electronic City",
+    location: "Bengaluru",
     rating: 5,
   },
 ];

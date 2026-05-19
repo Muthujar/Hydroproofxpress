@@ -2,6 +2,7 @@
 
 import * as React from "react";
 
+import { BrandLogo } from "@/components/shared/brand-logo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -102,25 +103,13 @@ export function SiteHeader({ className }: { className?: string }) {
           </div>
         </div>
       </div>
-      <div className="border-b border-border/60 bg-background/95 shadow-[0_4px_24px_-8px_rgba(15,23,42,0.08)] backdrop-blur-md supports-[backdrop-filter]:bg-background/88">
+      <div className="border-b border-border/60 bg-background/95 pt-[env(safe-area-inset-top,0px)] shadow-[0_4px_24px_-8px_rgba(15,23,42,0.08)] backdrop-blur-md supports-[backdrop-filter]:bg-background/88">
         <div className="mx-auto flex h-16 max-w-7xl min-w-0 items-center justify-between gap-2 px-3 sm:h-[4.25rem] sm:gap-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="group min-w-0 shrink rounded-lg px-1 py-1.5 pe-2 transition-colors [overflow-wrap:anywhere] hover:bg-muted/70 lg:max-w-[min(100%,26rem)]"
+          className="group flex shrink-0 items-center transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary/40"
         >
-          <p className="font-heading leading-snug tracking-tight">
-            <span className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
-              <span className="font-semibold text-primary group-hover:text-primary/85 sm:text-lg lg:text-xl">
-                {siteConfig.name}
-              </span>
-              <span className="hidden shrink-0 text-muted-foreground sm:inline" aria-hidden>
-                —
-              </span>
-              <span className="text-[0.65rem] font-medium uppercase tracking-[0.1em] text-muted-foreground sm:text-[0.78rem] sm:normal-case sm:tracking-normal lg:text-[0.82rem]">
-                {siteConfig.headerSubtitle}
-              </span>
-            </span>
-          </p>
+          <BrandLogo size="header" priority />
         </Link>
 
         <nav aria-label="Primary" className="hidden lg:block">
@@ -157,16 +146,46 @@ export function SiteHeader({ className }: { className?: string }) {
               side="right"
               className="flex h-[100dvh] max-h-[100dvh] w-[min(22rem,calc(100vw-16px))] min-w-0 flex-col gap-3 overflow-x-hidden overflow-y-auto border-l border-border/80 bg-gradient-to-b from-background to-muted/25 p-6 pb-[calc(1.25rem+env(safe-area-inset-bottom,0px))] pt-[calc(0.875rem+env(safe-area-inset-top,0px))]"
             >
-              <SheetTitle className="pr-14 text-left text-lg leading-snug font-heading break-words">
-                Menu
-              </SheetTitle>
+              <SheetTitle className="sr-only">Menu</SheetTitle>
+              <SheetClose asChild>
+                <Link
+                  href="/"
+                  onClick={() => setOpen(false)}
+                  className="inline-flex shrink-0 transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary/40"
+                >
+                  <BrandLogo size="drawer" />
+                </Link>
+              </SheetClose>
               <SheetDescription className="text-left text-sm text-muted-foreground">
                 Waterproofing and moisture protection
               </SheetDescription>
-              <div className="mt-8 flex flex-col gap-2 text-lg font-medium">
+              <div className="mt-6 flex flex-col gap-2 text-lg font-medium">
                 {headerNavLinks.map((link) => (
                   <MobileNavLink key={link.href} link={link} onNavigate={() => setOpen(false)} />
                 ))}
+                <div className="my-2 border-t border-border/80 pt-4">
+                  <p className="mb-2 px-3 text-xs font-semibold uppercase tracking-[0.14em] text-muted-foreground">
+                    Contact
+                  </p>
+                  <SheetClose asChild>
+                    <a
+                      href={`tel:${siteConfig.phoneTel}`}
+                      onClick={() => setOpen(false)}
+                      className="flex min-h-[48px] touch-manipulation items-center rounded-xl px-3 py-3 text-base text-foreground transition-colors hover:bg-muted/80"
+                    >
+                      {siteConfig.phoneDisplay}
+                    </a>
+                  </SheetClose>
+                  <SheetClose asChild>
+                    <a
+                      href={`mailto:${siteConfig.email}`}
+                      onClick={() => setOpen(false)}
+                      className="flex min-h-[48px] touch-manipulation items-center break-all rounded-xl px-3 py-3 text-base text-foreground transition-colors hover:bg-muted/80"
+                    >
+                      {siteConfig.email}
+                    </a>
+                  </SheetClose>
+                </div>
                 <SheetClose asChild>
                   <Link
                     href="/contact"

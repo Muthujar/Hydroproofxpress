@@ -1,8 +1,8 @@
 /** Service coverage — customise for operational footprint */
 export const serviceAreas = [
-  "Jubilee & Banjara Hills",
-  "Gachibowli • Financial District • Nanakramguda",
-  "Kondapur • Hitec City • Miyapur corridors",
-  "Secunderabad • Uppal industrial belt",
-  "Nearby cities and warehouses—we travel when booked in advance",
+  "Kaggalipura • Udayapura • Kanakapura Main Rd",
+  "JP Nagar • Banashankari • Uttarahalli corridors",
+  "Electronic City • Bannerghatta • Hosur Rd belt",
+  "Jayanagar • BTM • Koramangala south reach",
+  "Nearby towns along Kanakapura Rd—we travel when booked in advance",
 ];

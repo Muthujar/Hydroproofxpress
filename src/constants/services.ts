@@ -23,11 +23,14 @@ export type ServiceItem = {
   shortDesc: string;
   description: string;
   iconKey: keyof typeof SERVICE_ICONS;
-  /** Unsplash decorative image paths */
+  /** Local image under /public/services/ */
   imageSrc: string;
-  imageBlur?: string;
+  imageWidth: number;
+  imageHeight: number;
   highlights: readonly string[];
 };
+
+export const SERVICE_IMAGE_SIZE = { imageWidth: 1672, imageHeight: 941 } as const;
 
 export const SERVICE_ICONS: Record<string, LucideIcon> = {
   terrace: Droplets,
@@ -51,6 +54,10 @@ export const serviceTypeOptions = [
   { value: "other", label: "Multiple / Other" },
 ] as const;
 
+export function serviceImagePath(slug: ServiceSlug): string {
+  return `/services/${slug}.png`;
+}
+
 export const services: ServiceItem[] = [
   {
     slug: "terrace-waterproofing",
@@ -59,8 +66,8 @@ export const services: ServiceItem[] = [
     description:
       "We fix spots where water pools, adjust slopes where needed, and apply layered waterproofing plus reflective top coats suited to your local climate—so the slab lasts longer and leaks don’t come back quickly.",
     iconKey: "terrace",
-    imageSrc:
-      "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=900&q=80&auto=format&fit=crop",
+    imageSrc: serviceImagePath("terrace-waterproofing"),
+    ...SERVICE_IMAGE_SIZE,
     highlights: ["Finding damp zones before work starts", "Heat-saving overlays where useful", "Workmanship plans from 5–10 years"],
   },
   {
@@ -70,8 +77,8 @@ export const services: ServiceItem[] = [
     description:
       "We trace the leak with tests on drains, grout gaps, and pipe entries before breaking tiles. When possible we repair only what’s needed; bigger retiling is suggested only if the waterproof layer under the floor is beyond repair.",
     iconKey: "bathroom",
-    imageSrc:
-      "https://images.unsplash.com/photo-1581578731548-c64603569634?w=900&q=80&auto=format&fit=crop",
+    imageSrc: serviceImagePath("bathroom-leakage-repair"),
+    ...SERVICE_IMAGE_SIZE,
     highlights: ["Sealing joints and edges", "Quick steps to limit damage", "Schedules that respect neighbours"],
   },
   {
@@ -81,8 +88,8 @@ export const services: ServiceItem[] = [
     description:
       "Liquid or sheet-based systems over joints and cracks, with sun-stable finishes that cut roof heat and stop water creeping into ducts and ceiling gaps.",
     iconKey: "roof",
-    imageSrc:
-      "https://images.unsplash.com/photo-1632778149955-e80f8eafca93?w=900&q=80&auto=format&fit=crop",
+    imageSrc: serviceImagePath("roof-waterproofing"),
+    ...SERVICE_IMAGE_SIZE,
     highlights: ["Cooler roof surfaces where designed", "Edges and overlaps checked", "Skylights sealed properly"],
   },
   {
@@ -92,8 +99,8 @@ export const services: ServiceItem[] = [
     description:
       "We tell harmless cracks apart from structural ones, inject epoxy or PU where needed, bridge gaps with flexible coatings, and repaint so small seasonal movement doesn’t reopen lines straight away.",
     iconKey: "wall",
-    imageSrc:
-      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=900&q=80&auto=format&fit=crop",
+    imageSrc: serviceImagePath("wall-crack-repair"),
+    ...SERVICE_IMAGE_SIZE,
     highlights: ["Clear assessment first", "Controlled injection where suitable", "Finish matched to existing walls"],
   },
   {
@@ -103,8 +110,8 @@ export const services: ServiceItem[] = [
     description:
       "Food-safe coatings inside overhead tanks and sumps, plus reinforcement where walls are weak—all done with safe access and drying time planned so your water supply isn’t risky.",
     iconKey: "tank",
-    imageSrc:
-      "https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=900&q=80&auto=format&fit=crop",
+    imageSrc: serviceImagePath("water-tank-waterproofing"),
+    ...SERVICE_IMAGE_SIZE,
     highlights: ["Out-of-use windows planned with you", "Drying steps explained", "Water safety kept in mind"],
   },
   {
@@ -114,8 +121,8 @@ export const services: ServiceItem[] = [
     description:
       "Coatings and crystalline treatments, drains where useful, and vapour barriers before wood or epoxy floors—we coordinate with your engineer when groundwater pressure is high.",
     iconKey: "basement",
-    imageSrc:
-      "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=900&q=80&auto=format&fit=crop",
+    imageSrc: serviceImagePath("basement-waterproofing"),
+    ...SERVICE_IMAGE_SIZE,
     highlights: ["Backup sump plans where needed", "Dry joins between levels", "Pipe and cable holes sealed"],
   },
   {
@@ -125,8 +132,8 @@ export const services: ServiceItem[] = [
     description:
       "Thick, stretchy coatings that handle driving rain and sun on plaster or insulated façades—washable finishes for apartments and villas with lasting colour.",
     iconKey: "exterior",
-    imageSrc:
-      "https://images.unsplash.com/photo-1600566753376-12c8abfbfcb6?w=900&q=80&auto=format&fit=crop",
+    imageSrc: serviceImagePath("exterior-wall-coating"),
+    ...SERVICE_IMAGE_SIZE,
     highlights: ["Safe scaffolding setup", "Colour that lasts", "Sample patches before full coat"],
   },
 ];

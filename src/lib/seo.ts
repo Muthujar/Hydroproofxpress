@@ -31,6 +31,13 @@ export const defaultMetadata: Metadata = {
     "commercial waterproofing contractors",
   ],
   authors: [{ name: siteConfig.name, url: siteUrl }],
+  icons: {
+    icon: [
+      { url: siteConfig.logo.iconSrc, sizes: "512x512", type: "image/png" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",

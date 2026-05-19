@@ -21,8 +21,8 @@ export function FaqAccordion({ items }: FaqAccordionProps) {
           value={row.id}
           className="rounded-xl border border-border px-4 data-[state=open]:bg-muted/55"
         >
-          <AccordionTrigger className="text-left text-base hover:no-underline md:text-[1.06rem]">
-            <span className="pr-3 font-semibold text-primary">{row.question}</span>
+          <AccordionTrigger className="min-h-[48px] items-center py-4 text-left text-base hover:no-underline md:text-[1.06rem]">
+            <span className="break-words pr-3 font-semibold text-primary">{row.question}</span>
           </AccordionTrigger>
           <AccordionContent className="text-[15px] leading-relaxed text-muted-foreground pb-6 md:text-[1.05rem]">
             {row.answer}

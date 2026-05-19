@@ -15,17 +15,21 @@ export function HeroSection() {
         aria-hidden
       />
       <Image
-        src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=2400&q=72"
+        src="/hero.png"
         alt=""
         priority
         fill
         fetchPriority="high"
         sizes="100vw"
-        className="object-cover object-[50%_45%]"
+        className="object-cover object-[28%_center]"
         aria-hidden="true"
       />
       <div
-        className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/96 via-[#0f2742]/82 to-[#041018]/90"
+        className="absolute inset-0 bg-gradient-to-r from-[#0a1628]/95 via-[#0f2742]/72 to-[#041018]/35"
+        aria-hidden
+      />
+      <div
+        className="absolute inset-0 bg-gradient-to-t from-[#0a1628]/88 via-transparent to-[#041018]/45"
         aria-hidden
       />
       <div
@@ -44,14 +48,14 @@ export function HeroSection() {
           </div>
           <div className="mt-8 w-full min-w-0 max-w-xl space-y-4 text-left sm:mt-9 sm:max-w-2xl sm:space-y-5">
             <h1 className="font-heading text-[2rem] font-semibold leading-[1.12] tracking-tight text-balance text-white [overflow-wrap:anywhere] sm:text-[2.5rem] sm:leading-[1.1] lg:text-[3rem] lg:leading-[1.08]">
-              Fix the leak for good—not{" "}
+              Find where it leaks.{" "}
               <span className="bg-gradient-to-r from-amber-200 to-amber-400 bg-clip-text text-transparent">
-                a quick paint job
+                Fix it for good.
               </span>
-              .
             </h1>
-            <p className="max-w-md text-[1.0625rem] leading-[1.55] text-slate-100/95 [overflow-wrap:anywhere] sm:max-w-lg sm:text-[1.125rem]">
-              We find where the water comes in, explain the plan in plain words, then seal and test so it stays dry.
+            <p className="max-w-md text-[1.0625rem] leading-[1.55] text-slate-100/95 [overflow-wrap:anywhere] sm:max-w-xl sm:text-[1.125rem]">
+              Inspection-led waterproofing for terraces, bathrooms, roofs, tanks, and basements—we trace the
+              source, explain the scope clearly, apply the right system, and test before handover.
             </p>
           </div>
           <div className="mt-8 flex w-full flex-col items-stretch gap-3 sm:mt-9 sm:max-w-lg sm:flex-row sm:items-center sm:gap-4">
@@ -67,8 +71,7 @@ export function HeroSection() {
             </Button>
             <Button
               size="lg"
-              variant="outline"
-              className="w-full touch-manipulation border-2 border-white/90 bg-white/5 text-[1.04rem] text-white backdrop-blur-[2px] hover:bg-white/15 hover:text-white sm:w-auto"
+              className="w-full touch-manipulation border-0 bg-emerald-500 text-[1.04rem] font-semibold text-white shadow-[0_4px_0_0_rgba(4,120,87,0.55)] hover:bg-emerald-400 sm:w-auto"
               asChild
             >
               <Link href={getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" prefetch={false}>
