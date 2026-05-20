@@ -14,7 +14,7 @@ export function ServicesPreview() {
   return (
     <section
       id="services"
-      className="relative scroll-mt-28 border-t border-white/10 bg-slate-950 py-10 md:py-12 lg:py-14"
+      className="relative scroll-mt-28 max-sm:scroll-mt-36 border-t border-white/10 bg-slate-950 py-10 md:py-12 lg:py-14"
     >
       <div
         className="pointer-events-none absolute inset-y-0 left-0 w-[min(28%,220px)] opacity-[0.11]"
@@ -93,18 +93,12 @@ export function ServicesPreview() {
                       alt={service.title}
                       fill
                       sizes="(max-width:640px) 100vw, (max-width:1024px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.04] max-sm:group-hover:scale-100"
                     />
                     <div
                       className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/10 to-transparent"
                       aria-hidden
                     />
-                    <span
-                      className="absolute left-2.5 top-2.5 flex size-8 items-center justify-center rounded-full bg-white/95 text-[11px] font-bold tabular-nums text-slate-950 shadow-md"
-                      aria-hidden
-                    >
-                      {String(i + 1).padStart(2, "0")}
-                    </span>
                   </div>
                   <div className="flex flex-1 flex-col p-4">
                     <h3 className="font-heading text-[0.98rem] font-semibold leading-snug text-white [overflow-wrap:anywhere] sm:text-base">

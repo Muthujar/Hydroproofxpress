@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 /** Preset heights for the full wordmark (1536×1024, transparent PNG). */
 const sizeClasses = {
-  header: "h-24 w-auto sm:h-36 lg:h-48",
+  header: "h-24 w-auto max-w-[72vw] sm:max-w-none sm:h-36 lg:h-48",
   footer: "h-20 w-auto sm:h-28 lg:h-36",
   drawer: "h-16 w-auto sm:h-20",
   page: "h-20 w-auto sm:h-24 md:h-28",

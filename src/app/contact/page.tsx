@@ -19,8 +19,8 @@ export const metadata: Metadata = buildPageMeta({
 export default function ContactPage() {
   return (
     <div className="bg-background">
-      <section className="border-b border-border bg-muted/45 px-4 py-14 text-center md:py-16">
-        <h1 className="font-heading text-3xl text-primary md:text-[2.5rem]">Contact</h1>
+      <section className="border-b border-border bg-muted/45 px-4 py-14 max-sm:py-10 text-center md:py-16">
+        <h1 className="font-heading text-3xl text-primary max-sm:text-[1.75rem] md:text-[2.5rem]">Contact</h1>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground md:text-lg">
           Call, WhatsApp site photos, or send the form—we’ll route the right crew.
         </p>

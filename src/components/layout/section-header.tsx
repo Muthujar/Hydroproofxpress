@@ -43,7 +43,7 @@ export function SectionHeader({
       ) : null}
       <h2
         className={cn(
-          "break-words font-heading text-[1.75rem] font-semibold tracking-tight sm:text-4xl md:text-[2.5rem] md:leading-tight",
+          "break-words font-heading text-[1.625rem] font-semibold tracking-tight text-balance max-sm:text-[1.5rem] sm:text-4xl md:text-[2.5rem] md:leading-tight",
           tone === "dark" ? "text-white" : "text-primary"
         )}
       >

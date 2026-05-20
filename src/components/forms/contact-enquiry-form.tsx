@@ -150,6 +150,7 @@ function ContactEnquiryFields({ className }: { className?: string }) {
             <Select value={field.value} onValueChange={field.onChange}>
               <SelectTrigger
                 id="svc-type"
+                className="w-full"
                 aria-labelledby="svc-label"
                 aria-invalid={Boolean(form.formState.errors.serviceType)}
               >

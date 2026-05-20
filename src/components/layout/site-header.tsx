@@ -104,10 +104,10 @@ export function SiteHeader({ className }: { className?: string }) {
         </div>
       </div>
       <div className="border-b border-border/60 bg-background/95 pt-[env(safe-area-inset-top,0px)] shadow-[0_4px_24px_-8px_rgba(15,23,42,0.08)] backdrop-blur-md supports-[backdrop-filter]:bg-background/88">
-        <div className="mx-auto flex h-16 max-w-7xl min-w-0 items-center justify-between gap-2 px-3 sm:h-[4.25rem] sm:gap-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-16 max-w-7xl min-w-0 items-center justify-between gap-2 px-3 max-sm:h-auto max-sm:min-h-16 max-sm:py-2 sm:h-[4.25rem] sm:gap-4 sm:px-6 sm:py-0 lg:px-8">
         <Link
           href="/"
-          className="group flex shrink-0 items-center transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary/40"
+          className="group flex min-w-0 shrink items-center transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary/40"
         >
           <BrandLogo size="header" priority />
         </Link>

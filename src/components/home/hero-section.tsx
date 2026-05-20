@@ -36,7 +36,7 @@ export function HeroSection() {
         className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-amber-400/70 to-transparent"
         aria-hidden
       />
-      <div className="relative z-10 mx-auto flex w-full min-w-0 max-w-6xl flex-col items-start px-4 pb-12 pt-20 sm:px-6 lg:px-8 lg:pb-14 lg:pt-24">
+      <div className="relative z-10 mx-auto flex w-full min-w-0 max-w-6xl flex-col items-start px-4 pb-12 pt-28 sm:px-6 sm:pt-20 lg:px-8 lg:pb-14 lg:pt-24">
         <FadeIn delay={0.05} className="w-full">
           <div className="inline-flex max-w-full flex-wrap items-center gap-x-2.5 gap-y-1 rounded-lg border border-amber-400/50 bg-black/38 px-3 py-2 text-[13px] font-semibold uppercase tracking-[0.14em] text-amber-100/95 shadow-[inset_0_1px_0_0_rgba(251,191,36,0.12)] backdrop-blur-sm sm:px-3.5 sm:text-sm">
             <Droplets className="size-4 shrink-0 text-amber-300 sm:size-[1.125rem]" aria-hidden />
