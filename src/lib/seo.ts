@@ -33,8 +33,8 @@ export const defaultMetadata: Metadata = {
   authors: [{ name: siteConfig.name, url: siteUrl }],
   icons: {
     icon: [
+      { url: "/favicon-32.png", sizes: "32x32", type: "image/png" },
       { url: siteConfig.logo.iconSrc, sizes: "512x512", type: "image/png" },
-      { url: "/icon.png", sizes: "512x512", type: "image/png" },
     ],
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },

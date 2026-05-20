@@ -60,7 +60,7 @@ export const siteConfig = {
     width: 1536,
     height: 1024,
     /** Square crop of the pin/house mark — favicons & compact placements */
-    iconSrc: "/logo-icon.png",
+    iconSrc: "/icon.png",
     iconSize: 512,
   },
   /** Shown inline with name in header: "Name — …" */
